@@ -1,0 +1,91 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix oac: <http://www.openannotation.org/ns/> .
+@prefix ass: <http://isaw.nyu.edu/people/staff/tom_elliott/assertions#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ins: <http://inscription.es/> .
+@prefix gawd: <http://gawd.atlantides.org/terms/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dc: <http://www.purl.org/dc/elements/1.1/> .
+
+# ===========================================================================
+# about this file starts
+# ===========================================================================
+#
+# The triples contained in this file are an attempt to make some semantic
+# assertions about a Roman inscription from Tripolitania. That inscription
+# was most recently published in the digital version of Joyce Reynold's 
+# Inscriptions of Roman Tripolitania at this URL:
+#
+#     http://irt.kcl.ac.uk/irt2009/IRT264.html
+#
+# No RDF was included with the publication, so we're just making assertions
+# from outside the publishing context.
+
+    # about this file ends
+
+# ===========================================================================
+# Bibliographic description with Dublin Core and Bibliographic Ontology
+# ===========================================================================
+#
+# Dublin Core Metadata Terms: http://dublincore.org/documents/dcmi-terms/
+# Bibliographic Ontology: http://bibliontology.com/
+#
+
+<http://irt.kcl.ac.uk/irt2009/IRT264.html>  
+	a bibo:Webpage ;
+	dcterms:format “text/html” ;
+	dcterms:creator “Joyce Reynolds” ;
+	dcterms:creator “J.B. Ward Perkins” ;
+	dcterms:title “IRT 264. Dedication to Asclepius” ;
+	dcterms:date “2009” ;
+	dcterms:license http://creativecommons.org/licenses/by/2.0/uk/ .
+
+    # bibliographic description with Dublin Core and Bibo ends
+
+# ===========================================================================
+# Adding Graph of Ancient World Data terms
+# ===========================================================================
+#
+# GAWD is a a controlled vocabulary for expressing classes of relationships 
+# (or even assertions) between web-based resources in the context of Linked 
+# Data and Atom+GeoRSS feed applications. Its original version was a project 
+# deliverable for the NEH- and JISC-funded Concordia Project (2008-2009).
+# See further: http://gawd.atlantides.org/terms/
+#
+# first example, commented out, shows use with string literals for objects;
+# second example uses Pleiades URIs
+#  
+# <http://irt.kcl.ac.uk/irt2009/IRT264.html>
+#	gawd:findspot “Lepcis Magna” ;
+#	gawd:attestsTo “Nicomedia” .
+#
+
+<http://irt.kcl.ac.uk/irt2009/IRT264.html>
+	gawd:findspot <http://pleiades.stoa.org/places/344448#this> ;
+	gawd:attestsTo <http://pleiades.stoa.org/places/511337#this> .
+
+
+# ===========================================================================
+# Pelagios annotation with OAC
+# ===========================================================================
+#
+# Open Annotation Collaboration (OAC): http://www.openannotation.org/
+# Dublin Core Metadata Element Set: http://dublincore.org/documents/dces/
+#
+
+ass:a1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> oac:Annotation ;
+    dc:title ”IRT 264 mentions Nicomedia” ;
+    dcterms:creator <http://isaw.nyu.edu/people/staff/tom_elliott> ;
+    oac:hasBody <http://pleiades.stoa.org/places/511337> ;
+    oac:hasTarget <http://irt.kcl.ac.uk/irt2009/IRT264.html> .	
+    
+ass:a2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> oac:Annotation;
+    dc:title ”IRT 264 was found at Lepcis Magna” ;
+    dcterms:creator <http://isaw.nyu.edu/people/staff/tom_elliott> ;
+    oac:hasBody <http://pleiades.stoa.org/places/344448> ;
+    oac:hasTarget <http://irt.kcl.ac.uk/irt2009/IRT264.html> .
+    
+    # Pelagios annotation with OAC ends
+
+    
